@@ -29,7 +29,7 @@ The following calendar is the result of running `python greenhat.py 365`:
 
 <img src="https://github.com/4148/greenhat/blob/master/example.png" alt="example image"/>
 
-The run took a total of eight hours. Beautiful, isn't it?
+Beautiful, isn't it?
 
 Enjoy your decorated calendar!
 
