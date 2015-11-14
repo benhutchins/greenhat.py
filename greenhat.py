@@ -27,10 +27,6 @@ def main(argv):
 	use_whatthecommit = False
 	verbose = False
 
-	print argv
-	print argv[0]
-	print argv[0][0:2]
-
 	# Process argument flags (--)
 	while len(argv) > 0 and argv[0][0:2] == "--":
 		arg = argv.pop(0)
