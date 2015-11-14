@@ -18,7 +18,7 @@ It might take a while to generate all the commits. If greenhat stops before it f
 
 - `--push` will perform a `git push` after each `git commit`, makes the script much slower.
 - `--no-sleep` will skip the `0.5s` sleep between commits, making the script much faster but uses a lot more resources.
-- `--whathtecommit` will use [whatthecommit.com](http://whatthecommit.com/) to generate commit messages.
+- `--whatthecommit` will use [whatthecommit.com](http://whatthecommit.com/) to generate commit messages.
 - `--verbose` will output additional data to let you see overall process.
 
 These arguments should go before `<n>` and the optional `<date>` arguments.
