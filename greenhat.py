@@ -1,6 +1,6 @@
 # Copyright (c) 2015 Angus H. (4148)
 # Distributed under the GNU General Public License v3.0 (GPLv3).
-# Contibutions by:
+# Contributions by:
 #  Benjamin Hutchins <ben@hutchins.co>
 
 from datetime import date, timedelta
