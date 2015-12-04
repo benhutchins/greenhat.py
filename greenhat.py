@@ -41,7 +41,7 @@ def main(argv):
 			verbose = True
 		else:
 			print "Error: Bad arguments.", arg, "is not supported."
-			sys,exit(1)
+			sys.exit(1)
 
 	if len(argv) < 1 or len(argv) > 2:
 		print "Error: Bad input."
