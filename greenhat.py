@@ -30,7 +30,6 @@ def main(argv):
 	# Process argument flags (--)
 	while len(argv) > 0 and argv[0][0:2] == "--":
 		arg = argv.pop(0)
-		print arg
 		if arg is "--push":
 			should_push = True
 		elif arg == "--no-sleep":
