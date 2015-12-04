@@ -25,17 +25,28 @@ def main(argv):
 	should_push = False
 	should_sleep = True
 	use_whatthecommit = False
+	max_daily_commits = 10
 	verbose = False
 
 	# Process argument flags (--)
 	while len(argv) > 0 and argv[0][0:2] == "--":
 		arg = argv.pop(0)
+		value = None
+		parts = arg.split('=')
+		if len(parts) == 2:
+			arg = parts[0]
+			value = parts[1]
 		if arg is "--push":
 			should_push = True
 		elif arg == "--no-sleep":
 			should_sleep = False
 		elif arg in ("--wtc", "--whatthecommit"):
 			use_whatthecommit = True
+		elif arg in ("--commits"):
+			if value is None:
+				print "Error: Bad arguments. --commits=X requires a value"
+				sys.exit(1)
+			max_daily_commits = int(value)
 		elif arg in ("-v", "--verbose"):
 			verbose = True
 		else:
@@ -57,7 +68,7 @@ def main(argv):
 	i = 0
 	while i <= n:
 		curdate = get_date_string(i, startdate)
-		num_commits = randint(1, 10)
+		num_commits = randint(1, max_daily_commits)
 
 		if verbose:
 			print "Processing", curdate, "(", i, "/", n, ") with", num_commits, "commits"
