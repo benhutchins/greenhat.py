@@ -91,7 +91,11 @@ def main(argv):
 			if should_sleep:
 				sleep(0.5)
 		i += 1
-	subprocess.call("git rm realwork.txt; git commit -m 'delete'; git push;", shell=True)
+
+	subprocess.call("git rm realwork.txt; git commit -m 'delete';", shell=True)
+
+	if should_push:
+		subprocess.call("git push", shell=True)
 
 if __name__ == "__main__":
 	main(sys.argv[1:])
