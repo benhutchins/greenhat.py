@@ -26,6 +26,7 @@ def main(argv):
 	should_sleep = True
 	use_whatthecommit = False
 	max_daily_commits = 10
+	max_days_to_skip = 0
 	verbose = False
 
 	# Process argument flags (--)
@@ -47,6 +48,11 @@ def main(argv):
 				print "Error: Bad arguments. --commits=X requires a value"
 				sys.exit(1)
 			max_daily_commits = int(value)
+		elif arg in ("--jump"):
+			if value is None:
+				print "Error: Bad arguments. --jump=X requires a value"
+				sys.exit(1)
+			max_days_to_skip = int(value)
 		elif arg in ("-v", "--verbose"):
 			verbose = True
 		else:
@@ -100,7 +106,8 @@ def main(argv):
 			# Optionally sleep, since this makes the script slower
 			if should_sleep:
 				sleep(0.5)
-		i += 1
+
+		i += 1 if max_days_to_skip == 0 else randint(1, max_days_to_skip)
 
 	subprocess.call("git rm realwork.txt; git commit -m 'delete';", shell=True)
 
