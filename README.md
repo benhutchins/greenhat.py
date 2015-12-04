@@ -19,6 +19,8 @@ It might take a while to generate all the commits. If greenhat stops before it f
 - `--push` will perform a `git push` after each `git commit`, makes the script much slower.
 - `--no-sleep` will skip the `0.5s` sleep between commits, making the script much faster but uses a lot more resources.
 - `--whatthecommit` will use [whatthecommit.com](http://whatthecommit.com/) to generate commit messages.
+- `--commits=10` set the maximum number of commits that can happen per day (default is `10`).
+- `--jump=5` randomly jump ahead in time by a random number of days, between 1 and the given value so your calendar contribution calendar isn't quite as decorated (by default days are not skipped)
 - `--verbose` will output additional data to let you see overall process.
 
 These arguments should go before `<n>` and the optional `<date>` arguments.
