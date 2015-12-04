@@ -9,7 +9,11 @@ from time import sleep
 import sys
 import subprocess
 import os
-import urllib2
+
+try:
+	from urllib.request import urlopen
+except ImportError:
+	from urllib import urlopen
 
 # returns a date string for the date that is N days before STARTDATE
 def get_date_string(n, startdate):
@@ -18,7 +22,7 @@ def get_date_string(n, startdate):
 	return rtn
 
 def whatthecommit():
-	return urllib2.urlopen("http://whatthecommit.com/index.txt").read()
+	return urlopen("http://whatthecommit.com/index.txt").read()
 
 # main app
 def main(argv):
@@ -45,22 +49,22 @@ def main(argv):
 			use_whatthecommit = True
 		elif arg in ("--commits"):
 			if value is None:
-				print "Error: Bad arguments. --commits=X requires a value"
+				print("Error: Bad arguments. --commits=X requires a value")
 				sys.exit(1)
 			max_daily_commits = int(value)
 		elif arg in ("--jump"):
 			if value is None:
-				print "Error: Bad arguments. --jump=X requires a value"
+				print("Error: Bad arguments. --jump=X requires a value")
 				sys.exit(1)
 			max_days_to_skip = int(value)
 		elif arg in ("-v", "--verbose"):
 			verbose = True
 		else:
-			print "Error: Bad arguments.", arg, "is not supported."
+			print("Error: Bad arguments.", arg, "is not supported.")
 			sys.exit(1)
 
 	if len(argv) < 1 or len(argv) > 2:
-		print "Error: Bad input."
+		print("Error: Bad input.")
 		sys.exit(1)
 	n = int(argv[0])
 	if len(argv) == 1:
@@ -77,7 +81,7 @@ def main(argv):
 		num_commits = randint(1, max_daily_commits)
 
 		if verbose:
-			print "Processing", curdate, "(", i, "/", n, ") with", num_commits, "commits"
+			print("Processing", curdate, "(", i, "/", n, ") with", num_commits, "commits")
 
 		for commit in range(0, num_commits):
 			# Empty file
