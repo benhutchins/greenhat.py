@@ -78,7 +78,7 @@ def main(argv):
 			commit_message = whatthecommit() if use_whatthecommit else "update"
 
 			# Perform git commit
-			subprocess.call(["git add realwork.txt"], shell=True)
+			subprocess.call("git add realwork.txt", shell=True)
 			os.environ["GIT_AUTHOR_DATE"] = curdate
 			os.environ["GIT_COMMITTER_DATE"] = curdate
 			subprocess.Popen(["git", "commit", "-m", commit_message])
